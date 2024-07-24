@@ -1,4 +1,4 @@
-# ROS Noetic on Ubuntu 20.04 Installation Guide
+# ROS Noetic & ROS Foxy on Ubuntu 20.04 Installation Guide
 
 ## 1.1 Installing ROS Noetic on Ubuntu 20.04.3 LTS
 
@@ -77,9 +77,85 @@ Follow the steps below and enter the commands in the terminal:
     ```
     ![rosdep initialization](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/28.png)
 ---
+# 1.2 ROS 2 (Foxy) Installation Guide for Ubuntu 20.04
 
+## ROS 2 Installation on Ubuntu 20.04
+
+This guide provides step-by-step instructions for installing ROS 2 on Ubuntu 20.04. Follow the instructions below to set up your ROS 2 environment.
+
+### Set Locale
+
+Ensure you have a locale that supports UTF-8. If you are in a minimal environment (such as a Docker container), the locale may be minimal like POSIX. We test with the following settings. However, it should be fine if you’re using a different UTF-8 supported locale.
+
+```sh
+locale  # check for UTF-8
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+locale  # verify settings
+```
+### Setup Sources
+You need to add the ROS 2 apt repository to your system.
+
+First, ensure that the Ubuntu Universe repository is enabled
+
+```sh
+apt install software-properties-common
+sudo add-apt-repository universe
+```
+Add the ROS 2 GPG key with apt.
+
+```sh
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+Then add the repository to your sources list.
+
+
+```sh
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+### Install ROS 2 Packages
+Update your apt repository caches after setting up the repositories.
+```sh
+sudo apt update
+```
+ROS 2 packages are built on frequently updated Ubuntu systems. It is always recommended that you ensure your system is up to date before installing new packages.
+```sh
+sudo apt upgrade
+```
+Desktop Install (Recommended): ROS, RViz, demos, tutorials.
+```sh
+sudo apt install ros-foxy-desktop python3-argcomplete
+```
+### Environment Setup
+#### Sourcing the setup script
+
+Set up your environment by sourcing the following file.
+```sh
+# Replace ".bash" with your shell if you're not using bash
+# Possible values are: setup.bash, setup.sh, setup.zsh
+source /opt/ros/foxy/setup.bash
+```
+### Try Some Examples
+If you installed ros-foxy-desktop above, you can try some examples.
+
+In one terminal, source the setup file and then run a C++ talker:
+```sh
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_cpp talker
+```
+In another terminal, source the setup file and then run a Python listener:
+```sh
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_py listener
+```
+
+---
 ### References
 
 - [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 - [Ubuntu Downloads](https://ubuntu.com/download/desktop)
 - [Ubuntu install of ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
+- [ROS 2 Installation Guide for Ubuntu](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
