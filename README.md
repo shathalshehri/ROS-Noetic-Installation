@@ -178,8 +178,9 @@ Edit the `.bashrc` file and add the following line:
 
 ```sh
 source /opt/ros/foxy/setup.bash
-![Edit .bashrc](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/write_on_bashrc.png)
 ```
+![Edit .bashrc](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/write_on_bashrc.png)
+
 ---
 ### References
 
