@@ -1,7 +1,6 @@
+# ROS Noetic on Ubuntu 20.04 Installation Guide
 
-# ROS Noetic on Ubuntu 20.04.3 Installation Guide
-
-## 1. Installing ROS Noetic on Ubuntu 20.04 LTS
+## 1.1 Installing ROS Noetic on Ubuntu 20.04 LTS
 
 In this section, I will show you how to install ROS on the Ubuntu operating system. I’ve already installed Ubuntu 20.04.3 on a Virtual Machine. If you haven't installed VirtualBox on your operating system yet, you can install it using the references below. You will also need to download the Ubuntu ISO from their website.
 
@@ -18,44 +17,44 @@ ROS stands for Robot Operating System, which is more like an environment. It has
 
 Follow the steps below and enter the commands in the terminal:
 
-1. **Setup your sources.list**
+1. **Set up the ROS Noetic repository for Ubuntu 20.04**
     ```sh
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     ```
-    *(Insert screenshot of the output)*
+    ![Set up ROS Noetic repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/15.png)
 
 2. **Add the official ROS keyring**
     ```sh
     sudo apt install curl # if you haven't already installed curl
     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
     ```
-    *(Insert screenshot of the output)*
+    ![Add the official ROS keyring](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/17.png)
 
 3. **Update the ROS package index**
     ```sh
     sudo apt update
     ```
-    *(Insert screenshot of the output)*
+    ![Update ROS package index](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/update.png)
 
 4. **Install the ROS Noetic package**
     In most cases, you will want to install `ros-noetic-desktop-full` for a full ROS experience (Recommended).
     ```sh
     sudo apt install ros-noetic-desktop-full
     ```
-    *(Insert screenshot of the output)*
+    ![Install ROS Noetic package](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/19.png)
 
 5. **Verify the Noetic installation**
     You must source this script in every bash terminal you use ROS in:
     ```sh
     source /opt/ros/noetic/setup.bash
     ```
-    *(Insert screenshot of the output)*
+    ![Source setup.bash](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/20.png)
 
     Then, write `roscore` to make sure that the installation process was successful:
     ```sh
     roscore
     ```
-    *(Insert screenshot of the output)*
+    ![roscore](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/21.png)
 
 ---
 
@@ -63,3 +62,4 @@ Follow the steps below and enter the commands in the terminal:
 
 - [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 - [Ubuntu Downloads](https://ubuntu.com/download/desktop)
+- [Ubuntu install of ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
