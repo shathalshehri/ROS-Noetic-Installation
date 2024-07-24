@@ -28,7 +28,7 @@ Follow the steps below and enter the commands in the terminal:
     sudo apt install curl # if you haven't already installed curl
     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
     ```
-    ![Add the official ROS keyring](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/17.png)
+    ![Add the official ROS keyring]()
 
 3. **Update the ROS package index**
     ```sh
