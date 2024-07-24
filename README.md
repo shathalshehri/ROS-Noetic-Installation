@@ -83,7 +83,7 @@ Follow the steps below and enter the commands in the terminal:
 
 This guide provides step-by-step instructions for installing ROS 2 on Ubuntu 20.04. Follow the instructions below to set up your ROS 2 environment.
 
-### Set Locale
+### 1. Set Locale
 
 Ensure you have a locale that supports UTF-8. If you are in a minimal environment (such as a Docker container), the locale may be minimal like POSIX. We test with the following settings. However, it should be fine if you’re using a different UTF-8 supported locale.
 
@@ -97,7 +97,7 @@ locale  # verify settings
 ```
 ![Set Locale - Check UTF-8](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/setlocale.png)
 
-### Setup Sources
+### 2. Setup Sources
 You need to add the ROS 2 apt repository to your system.
 
 First, ensure that the Ubuntu Universe repository is enabled
@@ -124,7 +124,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 ```
 ![Setup Sources - Add Repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/add-repo-to-sourcesList.png)
 
-### Install ROS 2 Packages
+### 3. Install ROS 2 Packages
 Update your apt repository caches after setting up the repositories.
 ```sh
 sudo apt update
@@ -143,7 +143,7 @@ sudo apt install ros-foxy-desktop python3-argcomplete
 ```
 ![Desktop Install](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/Desktop%20Install.png)
 
-### Environment Setup
+### 4. Environment Setup
 #### Sourcing the setup script
 
 Set up your environment by sourcing the following file.
@@ -155,7 +155,7 @@ source /opt/ros/foxy/setup.bash
 ![Setup Environment](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/SetupEnvironment.png)
 
 
-### Try Some Examples
+### 5. Try Some Examples
 If you installed ros-foxy-desktop above, you can try some examples.
 
 In one terminal, source the setup file and then run a C++ talker:
@@ -171,6 +171,8 @@ source /opt/ros/foxy/setup.bash
 ros2 run demo_nodes_py listener
 ```
 ![Python Listener Example](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/example%3Alistener.png)
+
+---
 
 ### Set Up Environment in `.bashrc`
 
