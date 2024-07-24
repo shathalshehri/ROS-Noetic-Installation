@@ -95,6 +95,8 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 locale  # verify settings
 ```
+![Set Locale - Check UTF-8](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/setlocale.png)
+
 ### Setup Sources
 You need to add the ROS 2 apt repository to your system.
 
@@ -104,31 +106,43 @@ First, ensure that the Ubuntu Universe repository is enabled
 apt install software-properties-common
 sudo add-apt-repository universe
 ```
+![Setup Sources - Enable Universe Repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/SetUpSources.png)
+
 Add the ROS 2 GPG key with apt.
 
 ```sh
 sudo apt update && sudo apt install curl -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
+![Setup Sources - Add GPG Key](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/ROS2GPGkey-with-apt.png)
+
 Then add the repository to your sources list.
 
 
 ```sh
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
+![Setup Sources - Add Repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/add-repo-to-sourcesList.png)
+
 ### Install ROS 2 Packages
 Update your apt repository caches after setting up the repositories.
 ```sh
 sudo apt update
 ```
+![Update apt repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/update.png)
+
 ROS 2 packages are built on frequently updated Ubuntu systems. It is always recommended that you ensure your system is up to date before installing new packages.
 ```sh
 sudo apt upgrade
 ```
+![Upgrade system packages](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/upgrade.png)
+
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 ```sh
 sudo apt install ros-foxy-desktop python3-argcomplete
 ```
+![Desktop Install](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/Desktop%20Install.png)
+
 ### Environment Setup
 #### Sourcing the setup script
 
@@ -138,6 +152,9 @@ Set up your environment by sourcing the following file.
 # Possible values are: setup.bash, setup.sh, setup.zsh
 source /opt/ros/foxy/setup.bash
 ```
+![Setup Environment](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/SetupEnvironment.png)
+
+
 ### Try Some Examples
 If you installed ros-foxy-desktop above, you can try some examples.
 
@@ -146,12 +163,23 @@ In one terminal, source the setup file and then run a C++ talker:
 source /opt/ros/foxy/setup.bash
 ros2 run demo_nodes_cpp talker
 ```
+![C++ Talker Example](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/example%3Atalker.png)
+
 In another terminal, source the setup file and then run a Python listener:
 ```sh
 source /opt/ros/foxy/setup.bash
 ros2 run demo_nodes_py listener
 ```
+![Python Listener Example](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/example%3Alistener.png)
 
+### Set Up Environment in `.bashrc`
+
+Edit the `.bashrc` file and add the following line:
+
+```sh
+source /opt/ros/foxy/setup.bash
+![Edit .bashrc](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/write_on_bashrc.png)
+```
 ---
 ### References
 
