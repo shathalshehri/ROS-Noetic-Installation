@@ -1,6 +1,6 @@
 # ROS Noetic on Ubuntu 20.04 Installation Guide
 
-## 1.1 Installing ROS Noetic on Ubuntu 20.04 LTS
+## 1.1 Installing ROS Noetic on Ubuntu 20.04.3 LTS
 
 In this section, I will show you how to install ROS on the Ubuntu operating system. I’ve already installed Ubuntu 20.04.3 on a Virtual Machine. If you haven't installed VirtualBox on your operating system yet, you can install it using the references below. You will also need to download the Ubuntu ISO from their website.
 
@@ -21,7 +21,7 @@ Follow the steps below and enter the commands in the terminal:
     ```sh
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     ```
-    ![Set up ROS Noetic repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/15.png)
+    ![Set up ROS Noetic repository](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/14.png)
 
 2. **Add the official ROS keyring**
     ```sh
