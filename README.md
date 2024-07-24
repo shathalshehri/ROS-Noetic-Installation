@@ -55,7 +55,27 @@ Follow the steps below and enter the commands in the terminal:
     roscore
     ```
     ![roscore](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/21.png)
+   
+7. **Install Additional Dependencies for Building ROS Packages**
+    To create and manage your own ROS workspaces, you will need additional tools and dependencies. Install the following packages to handle this:
+    ```sh
+    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+    ```
+    ![Install additional dependencies](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/26.png)
 
+8. **Initialize rosdep**
+    Before using many ROS tools, you need to initialize `rosdep`. `rosdep` allows you to easily install system dependencies for source code you want to compile and is required to run some core components in ROS. If you have not yet installed `rosdep`, do so with the following command:
+    ```sh
+    sudo apt install python3-rosdep
+    ```
+    ![Initialize rosdep](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/27.png)
+
+    With the following, you can initialize `rosdep`:
+    ```sh
+    sudo rosdep init
+    rosdep update
+    ```
+    ![rosdep initialization](https://github.com/shathalshehri/ROS-Noetic-Installation/blob/main/28.png)
 ---
 
 ### References
